@@ -1,0 +1,106 @@
+{
+	"name": "shadow-reader-pro",
+	"displayName": "shadow reader pro",
+	"description": "摸鱼划水看书，十分隐蔽",
+	"version": "0.8.2",
+	"publisher": "liuhui",
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"icon": "images/icon.jpeg",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:shadowReader.start"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/igzhang/shadowReader.git"
+	},
+	"homepage": "https://github.com/igzhang/shadowReader/blob/main/README.md",
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "shadow reader pro",
+			"properties": {
+				"shadowReader.pageSize": {
+					"type": "number",
+					"default": 50,
+					"description": "每次最多显示字数"
+				},
+				"shadowReader.onlineBookURL": {
+					"type": "string",
+					"default": "https://www.bq03.cc",
+					"description": "在线书源"
+				},
+				"shadowReader.hiddenTime": {
+					"type": "number",
+					"default": 30,
+					"description": "自动隐藏时间"
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "shadowReader.getNextPage",
+				"key": "alt+."
+			},
+			{
+				"command": "shadowReader.getPrevPage",
+				"key": "alt+,"
+			},
+			{
+				"command": "shadowReader.showBossInfo",
+				"key": "alt+/"
+			}
+		],
+		"commands": [
+			{
+				"command": "shadowReader.start",
+				"title": "开始工作",
+				"category": "shadowReader",
+				"icon": "$(book)"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "shadowReader.start",
+					"alt": "markdown.showPreviewToSide",
+					"group": "navigation"
+				}
+			]
+		},
+		"capabilities": {
+			"hoverProvider": "true"
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.54.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"axios": "^0.21.1",
+		"chardet": "^1.3.0",
+		"cheerio": "^1.0.0-rc.5",
+		"iconv-lite": "^0.6.2"
+	}
+}
