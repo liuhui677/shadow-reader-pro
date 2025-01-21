@@ -16,9 +16,9 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/igzhang/shadowReader.git"
+		"url": "https://github.com/liuhui677/shadow-reader-pro"
 	},
-	"homepage": "https://github.com/igzhang/shadowReader/blob/main/README.md",
+	"homepage": "https://github.com/liuhui677/shadow-reader-pro/blob/main/README.md",
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration": {
